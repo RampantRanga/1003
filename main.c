@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    char input[] = "Encrypt tHis!"; //array
+    char input[] = "abcdefghijklmnopqrsstuvwxyz123456789"; //array
     int i = 0;
     int n = sizeof(input)/sizeof(char); //provides an endpoint where the code stops encrypting the message
     //char output[n];
@@ -13,15 +13,13 @@ int main() {
                 input[i] = input[i] - 32;
             }        
         
-        input[i]+=k;
-            if(input[i] > 90) {
+            if((input[i] >= 65) && (input[i] <= 90)) {
+                input[i]+=k; 
+            }    
+
+            if((input[i] > 90) && (input[i] < 90 + k)) {
                 input[i] = input[i] - 26;
             }   
-
-            
-            if(input[i] == 32 + k) {
-                input[i] = 32;
-            }
 
         printf("%c", input[i]);
     }
