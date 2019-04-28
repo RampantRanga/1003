@@ -69,9 +69,9 @@ numerals, symbols and characters.*/
 void task1(char input[1024], int i, int k) { //function body
     
     printf("Running Rotary Encryption\n");
-        printf("please input code for encryption:");
+        printf("Please input code for encryption:\n");
         scanf(" %[^\n]s", input); //scanning plain text as a string, the use of " %[^\n]s" scans the string until it reaches a new line character and includes whitespace 
-        printf("Please insert the Encryption Key: ");
+        printf("Please insert the Encryption Key:\n");
         scanf("%d", &k); //scanning value of k from the user interface
             for(i = 0; i < strlen(input); i++)  { //loop increases the value of i each time which shifts it to the next character in the string, the loop will continue until it reaches the end of the string using the function strlen
         
@@ -97,9 +97,9 @@ it does this simply by instead of adding k to the input value it subtracts it.*/
 void task2(char input[1024], int k, int i) {
     
     printf("Running Rotary Decryption\n");
-        printf("please input code for Decryption:");
+        printf("Please input code for Decryption:\n");
         scanf(" %[^\n]s", input);
-        printf("Please insert the Decryption Key: ");
+        printf("Please insert the Decryption Key:\n");
         scanf("%d", &k); //scanning value of k
              for(i = 0; i < strlen(input); i++)  { //loop works the same as in task 1
         
@@ -129,7 +129,7 @@ equal to the letter in the key that is in the m'th position that was inputted by
 void task3(char input[1024], char key[26], int i, int m) {
     
     printf("Running Substitution Encryption\n");
-        printf("please input code for Encryption:");
+        printf("Please input code for Encryption:\n");
         scanf(" %[^\n]s", input); //scans plain text for encryption
         printf("Please input Substitution Key:\n");
         scanf("%s", key); //scans Substitution encryption cipher from the user
@@ -140,9 +140,12 @@ void task3(char input[1024], char key[26], int i, int m) {
                     input[i] = input[i] - 32; //lowercase to uppercase
                 }
                 
+                if((input[i] >= 65) && (input[i] <= 90)) {
                 m = input[i]; //assigns input[i] to m for following equations
                 m = m - 65; //brings m to a value in between 0 to 25
                 input[i] = key[m]; //assigns the key[m] value back to input[i] for printing
+                
+                }
                 
                 if((input[i] >= 97) && (input[i] <= 122)) {
                 input[i] = input[i] - 32; //lowercase to uppercase
@@ -163,32 +166,34 @@ to the compiler.*/
 void task4(char input[1024], char key[26], int i, int n, char alpha[26]) {
     
     printf("Running Substitution Decryption\n");
-        printf("please input code for Decryption:");
+        printf("Please input code for Decryption:\n");
         scanf(" %[^\n]s", input); //scanning the input as a string
         printf("Please input Substitution Key:\n");
         scanf("%s", key); //scanning key from user for decryption
             for(i = 0; i < strlen(input); i++)  { //loop runs the same as in tasks 1, 2 and 3
                 
-                if((input[i] >= 97) && (input[i] <= 122)) {
-                    input[i] = input[i] - 32; //lowercase to uppercase
-                }
+            if((input[i] >= 97) && (input[i] <= 122)) {
+                input[i] = input[i] - 32; //lowercase to uppercase
+            }
                 
+            if((input[i] >= 65) && (input[i] <= 90)) {
                 for(n=0; n < 26; n++) { //loops through each character inputted by the user
-                 
-                    if((key[n] >= 97) && (key[n] <= 122)) {
-                    key[n] = key[n] - 32; //lowercase to uppercase for the key when typed by the user
-                }
+                        
+                        if((key[n] >= 97) && (key[n] <= 122)) {
+                            key[n] = key[n] - 32; //lowercase to uppercase for the key when typed by the user
+                        }
                 
-                    if(input[i] == key[n]) { //when the input character is equal to the key character the if then changes the input[i] value to the correct letter in the alphabet
-                        input[i] = alpha[n]; //alpha[n] is the alphabet which is initialised at the top of the code
-                    }
+                        if(input[i] == key[n]) { //when the input character is equal to the key character the if then changes the input[i] value to the correct letter in the alphabet
+                            input[i] = alpha[n]; //alpha[n] is the alphabet which is initialised at the top of the code
+                        }
+                        
                 }
                 
                 if((input[i] >= 97) && (input[i] <= 122)) { 
                     input[i] = input[i] - 32; //lowercase to uppercase
                 }
-                printf("%c", input[i]);
-    
-            }
-        
+            }    
+                
+            printf("%c", input[i]);
+        }    
 }
