@@ -88,6 +88,8 @@ void task1(char input[1024], int i, int k) { //function body
                 printf("%c", input[i]); //"%c" tells the printf function to print the character value of input[i] to the compiler
             
             }
+            
+    printf("%c", 10);         
 
 }
 
@@ -116,7 +118,9 @@ void task2(char input[1024], int k, int i) {
                 printf("%c", input[i]);
             
             }
-           
+
+    printf("%c", 10);
+
 }
 
 /*task 3 is the Substitution Encryption, the substitution method takes letters and randomly assigns them new letters, for example:
@@ -154,6 +158,8 @@ void task3(char input[1024], char key[26], int i, int m) {
                 printf("%c", input[i]);
                     
             }
+
+    printf("%c", 10);
 
 }
 
@@ -196,4 +202,7 @@ void task4(char input[1024], char key[26], int i, int n, char alpha[26]) {
                 
             printf("%c", input[i]);
         }    
+
+    printf("%c", 10);
+
 }
